@@ -6,11 +6,10 @@ import loading from '../loading'
 const api = new API()
 const games = api.service('games')
 
-export const SET_POSITION = 'SET_POSITION'
+export default(gameId, symbol, position) => {
+  console.log(gameId, symbol, position)
 
-export default (gameId, symbol, position) => {
   return (dispatch) => {
-    dispatch(loading(true))
 
     api.app.authenticate()
     .then(() => {
@@ -24,6 +23,9 @@ export default (gameId, symbol, position) => {
       .then(() => {
         dispatch(loading(false))
       })
+    })
+    .catch((error) => {
+      dispatch(loadError(error))
     })
   }
 }

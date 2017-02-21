@@ -1,14 +1,27 @@
 import React, { PureComponent } from 'react'
 import './Tile.sass'
+import setPosition from '../../actions/game/set-position'
+import { connect } from 'react-redux'
 
 class Tile extends PureComponent {
+  handleClick() {
+    const game = this.props.currentGame
+    const gameId = game._id
+    const symbol = (game.turn === game.playerOneId) ? 'X' : 'O'
+    const position = this.props.tileId
+    this.props.setPosition(gameId, symbol, position)
+  }
+
   render() {
+    console.log(this.props.currentGame._id)
     return (
-      <div className='tile'>
+      <div className='tile'
+        onClick={this.handleClick.bind(this)}>
         <span className='value'>{ this.props.value }</span>
       </div>
     )
   }
 }
 
-export default Tile
+const mapStateToProps = ({currentGame}) => ({currentGame})
+export default connect(mapStateToProps, { setPosition })(Tile)

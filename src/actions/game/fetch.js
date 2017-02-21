@@ -20,7 +20,6 @@ export default () => {
         }
       })
       .then((response) => {
-        console.log(response)
         dispatch(loadSuccess())
         dispatch({
           type: FETCHED_GAMES,
@@ -28,7 +27,6 @@ export default () => {
         })
       })
       .catch((error) => {
-        console.log(error)
         dispatch(loadError(error))
       })
       .then(() => {

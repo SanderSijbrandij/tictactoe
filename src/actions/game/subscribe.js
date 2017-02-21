@@ -1,4 +1,5 @@
 import API from '../../middleware/api'
+import { JOINED_GAME } from './join'
 
 export const SUBSCRIBED_TO_GAMES_SERVICE = 'SUBSCRIBED_TO_GAMES_SERVICE'
 export const GAME_CREATED = 'GAME_CREATED'

@@ -31,7 +31,5 @@ class Game extends PureComponent {
     )
   }
 }
-const mapStateToProps = ({currentGame}) => ({
-  currentGame
-})
+const mapStateToProps = ({currentGame}) => ({currentGame})
 export default connect(mapStateToProps, { resetGame })(Game)

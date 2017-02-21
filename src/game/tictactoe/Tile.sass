@@ -1,4 +1,26 @@
+@import '../../assets/styles/colors.sass'
+@import url(https://fonts.googleapis.com/css?family=Lato:900)
+
+$lato: 'Lato', sans-serif
+
 .tile
   height: 100px
   width: 100px
-  border: 1px solid black
+  margin: 5px
+  background: $board
+  text-align: center
+  border-radius: 4px
+  box-shadow: 0 4px #106889
+  transition-duration: 150ms
+
+  &:active
+    transform: translateY(4px)
+    box-shadow: 0 0
+
+  .value
+    color: white
+    font-size: 70px
+    text-align: center
+    font-family: $lato
+    font-weight: bold
+    line-height: 97px
