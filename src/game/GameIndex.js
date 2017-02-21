@@ -14,7 +14,6 @@ class GameIndex extends PureComponent {
   }
 
   render () {
-    console.log(this.props)
       return (
         <Paper className='game-row'>
           <div className='row-info'>

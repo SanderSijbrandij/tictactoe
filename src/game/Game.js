@@ -4,23 +4,21 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import Board from './tictactoe/board'
 
-import leaveGame from '../actions/game/leave'
+import resetGame from '../actions/game/reset'
 
 class Game extends PureComponent {
   handleClick(e) {
     e.preventDefault()
-    console.log(this)
     if (this.props.params.gameId === this.props.currentGame._id) {
-      this.props.leaveGame(this.props.params.gameId)
+      this.props.resetGame(this.props.params.gameId)
     }
   }
   render () {
     return (
       <div>
-        // <div className='row-actions'>
-        //   <RaisedButton label="Start game" primary={true} />
-        //   <RaisedButton label="Leave" primary={true} onClick={this.handleClick.bind(this)} />
-        // </div>
+        <div className='row-actions'>
+          <RaisedButton label="Reset" primary={true} onClick={this.handleClick.bind(this)} />
+        </div>
         <Paper className='game-row'>
           <div className='row-actions'>
             <span>Playerlist</span>
@@ -28,7 +26,7 @@ class Game extends PureComponent {
           <div className='row-info'>
           </div>
         </Paper>
-        <Board />
+        <Board board={this.props.currentGame.board} />
       </div>
     )
   }
@@ -36,4 +34,4 @@ class Game extends PureComponent {
 const mapStateToProps = ({currentGame}) => ({
   currentGame
 })
-export default connect(mapStateToProps, { leaveGame })(Game)
+export default connect(mapStateToProps, { resetGame })(Game)

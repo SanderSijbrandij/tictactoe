@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import Tile from './Tile'
 import './Board.sass'
-
-const tiles = ['X', 'O', 'X',
-               'O', 'X', 'O',
-               'X', 'O', 'X']
+import setPosition from '../../actions/game/set-position'
 
 class Board extends PureComponent {
   renderTile(tile, index) {
@@ -14,10 +12,10 @@ class Board extends PureComponent {
   render() {
     return (
       <div className='board'>
-        {tiles.map(this.renderTile)}
+        {this.props.board.map(this.renderTile)}
       </div>
     )
   }
 }
 
-export default Board
+export default connect(null, { setPosition })(Board)
