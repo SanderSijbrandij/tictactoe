@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
+import Board from './tictactoe/board'
 
 import leaveGame from '../actions/game/leave'
 
@@ -25,10 +26,9 @@ class Game extends PureComponent {
             <span>Playerlist</span>
           </div>
           <div className='row-info'>
-            <span>
-            </span>
           </div>
         </Paper>
+        <Board />
       </div>
     )
   }
