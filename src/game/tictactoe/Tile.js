@@ -7,8 +7,9 @@ class Tile extends PureComponent {
   handleClick() {
     const game = this.props.currentGame
     const gameId = game._id
-    const symbol = (game.turn === game.playerOneId) ? 'X' : 'O'
+    const symbol = (game.turn === 1) ? 'X' : 'O'
     const position = this.props.tileId
+
     this.props.setPosition(gameId, symbol, position)
   }
 

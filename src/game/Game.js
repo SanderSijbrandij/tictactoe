@@ -19,14 +19,12 @@ class Game extends PureComponent {
         <div className='row-actions'>
           <RaisedButton label="Reset" primary={true} onClick={this.handleClick.bind(this)} />
         </div>
-        <Paper className='game-row'>
-          <div className='row-actions'>
-            <span>Playerlist</span>
-          </div>
-          <div className='row-info'>
-          </div>
-        </Paper>
         <Board board={this.props.currentGame.board} />
+        { this.props.currentGame.winner &&
+          <h1 style={{textAlign: 'center'}}>
+            player {this.props.currentGame.turn} loses. SAD! LOW ENERGY!
+          </h1>
+        }
       </div>
     )
   }
