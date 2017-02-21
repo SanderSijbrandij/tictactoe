@@ -1,0 +1,19 @@
+@import './assets/styles/colors.sass'
+
+body
+  padding: 0
+  margin: 0
+  font-family: 'Roboto', Helvetica, Arial, sans-serif
+  background: url('./assets/images/brushed_alu.png') repeat
+  animation: background 60s infinite linear
+
+.formError
+  margin-top: -3px
+  font-weight: 300
+  color: $warning
+
+@keyframes background
+  0%
+    background-position: 0 0
+  100%
+    background-position: 100% 500px
