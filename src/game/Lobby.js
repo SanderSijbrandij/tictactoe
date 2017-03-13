@@ -30,7 +30,6 @@ class Lobby extends PureComponent {
   }
 
   render () {
-    console.log(this.props)
     return(
       <div className='lobby'>
         <RaisedButton label="Create a game!" secondary={true}

@@ -2,7 +2,8 @@
 import feathers from 'feathers-client'
 import io from 'socket.io-client';
 
-const host = 'https://obscure-peak-68901.herokuapp.com'
+// const host = 'https://obscure-peak-68901.herokuapp.com'
+const host = 'http://localhost:3030'
 
 class API {
   constructor() {

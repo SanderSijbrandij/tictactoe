@@ -10,7 +10,7 @@ import joinGame from '../actions/game/join'
 
 class GameIndex extends PureComponent {
   handleClick() {
-    this.props.joinGame(this.props._id) 
+    this.props.joinGame(this.props._id, this.props.currentUser._id)
   }
 
   render () {

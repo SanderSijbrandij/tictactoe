@@ -5,11 +5,12 @@ import loading from '../loading'
 import {history} from '../../store'
 
 export const JOINED_GAME = 'JOINED_GAME'
+export const GAME_FULL = 'GAME_FULL'
 
 const api = new API()
 const games = api.service('games')
 
-export default (gameId) => {
+export default (gameId, userId) => {
   return (dispatch) => {
     dispatch(loading(true))
     // authenticate
@@ -20,6 +21,11 @@ export default (gameId) => {
       // then => success!
       .then((response) => {
         dispatch(loadSuccess())
+        if (userId !== response.playerOneId && userId !== response.playerTwoId) {
+          dispatch({type: GAME_FULL})
+          dispatch(loadError({ message: 'Game is full. Please try another.'}))
+          return false
+        }
         dispatch({
           type: JOINED_GAME,
           payload: response

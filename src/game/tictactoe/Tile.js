@@ -14,7 +14,6 @@ class Tile extends PureComponent {
   }
 
   render() {
-    console.log(this.props.currentGame._id)
     return (
       <div className='tile'
         onClick={this.handleClick.bind(this)}>

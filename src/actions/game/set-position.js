@@ -7,8 +7,6 @@ const api = new API()
 const games = api.service('games')
 
 export default(gameId, symbol, position) => {
-  console.log(gameId, symbol, position)
-
   return (dispatch) => {
 
     api.app.authenticate()
